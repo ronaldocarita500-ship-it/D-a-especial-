@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Feliz Cumpleaños Liz 🌷</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#F9F4FF,#EADFFF,#DCC6FF);
+min-height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+/* GLOBOS */
+
+.globos{
+position:fixed;
+left:0;
+bottom:-150px;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:1;
+}
+
+.globo{
+position:absolute;
+font-size:45px;
+animation:subir linear infinite;
+}
+
+@keyframes subir{
+0%{
+transform:translateY(0);
+opacity:0;
+}
+10%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+
+/* FLORES */
+
+.flor{
+position:fixed;
+top:-40px;
+font-size:24px;
+pointer-events:none;
+animation:caer linear forwards;
+z-index:2;
+}
+
+@keyframes caer{
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:1;
+}
+100%{
+transform:translateY(110vh) rotate(360deg);
+opacity:0;
+}
+}
+
+.panel{
+width:100%;
+max-width:900px;
+position:relative;
+z-index:5;
+}
+
+.hidden{
+display:none;
+}
+
+.card{
+background:rgba(255,255,255,.92);
+backdrop-filter:blur(10px);
+padding:35px;
+border-radius:25px;
+box-shadow:0 15px 40px rgba(0,0,0,.12);
+text-align:center;
+}
+
+h1{
+color:#7458b8;
+margin-bottom:15px;
+}
+
+h2{
+color:#8167c4;
+margin-top:15px;
+}
+
+p{
+line-height:1.8;
+color:#555;
+}
+
+.fecha{
+font-weight:bold;
+color:#876ec8;
+margin-bottom:15px;
+}
+
+.btn{
+margin-top:25px;
+padding:14px 28px;
+border:none;
+border-radius:40px;
+background:#BFA7FF;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+.gift{
+font-size:110px;
+cursor:pointer;
+animation:flotar 2s infinite ease-in-out;
+}
+
+@keyframes flotar{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-12px);}
+}
+
+/* CARTA */
+
+.carta-container{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:15px;
+}
+
+.marco{
+width:70px;
+}
+
+.derecha{
+transform:scaleX(-1);
+}
+
+.carta{
+background:white;
+padding:30px;
+border-radius:20px;
+max-width:650px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+text-align:left;
+}
+
+.carta h1{
+text-align:center;
+}
+
+.firma{
+text-align:center;
+margin-top:20px;
+font-size:22px;
+font-weight:bold;
+color:#7458b8;
+}
+
+.final{
+display:none;
+margin-top:20px;
+padding:15px;
+background:#F4EEFF;
+border-radius:15px;
+text-align:center;
+}
+
+@media(max-width:768px){
+
+.marco{
+width:40px;
+}
+
+.carta{
+padding:18px;
+}
+
+.gift{
+font-size:90px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="globos" id="globos"></div>
+
+<div class="panel">
+
+<div id="inicio" class="card">
+
+<h1>🌷 Una pequeña sorpresa 🌷</h1>
+
+<p>Hay algo preparado especialmente para ti.</p>
+
+<div class="fecha">
+31 de mayo ✨
+</div>
+
+<button class="btn" onclick="mostrarRegalo()">
+Abrir sorpresa
+</button>
+
+</div>
+
+<div id="regalo" class="card hidden">
+
+<div class="gift" onclick="abrirCarta()">🎁</div>
+
+<h2>Toca el regalo</h2>
+
+<p>Hay un mensaje esperando por ti.</p>
+
+</div>
+
+<div id="cartaCompleta" class="hidden">
+
+<div class="carta-container">
+
+<img src="flores-lila.jpeg" class="marco">
+
+<div class="carta">
+
+<h1>🎂 Feliz Cumpleaños, Liz 🎂</h1>
+
+<p>
+Hoy es un día especial y quería aprovechar para desearte mucha felicidad, tranquilidad y momentos bonitos.
+</p>
+
+<br>
+
+<p>
+Espero que disfrutes cada instante de este día y que este nuevo año te traiga experiencias inolvidables, metas cumplidas y muchas razones para sonreír.
+</p>
+
+<br>
+
+<p>
+Gracias por los momentos compartidos, por las conversaciones, por las risas y por permitirme conocerte un poco más.
+</p>
+
+<br>
+
+<p>
+Que nunca te falten sueños por cumplir, personas que te aprecien y motivos para sentirte orgullosa de quién eres.
+</p>
+
+<br>
+
+<p>
+🌷 Que la vida te regale cosas tan bonitas como las que tú transmites a los demás.
+</p>
+
+<div class="firma">
+— R
+</div>
+
+<button class="btn" onclick="mostrarFinal()">
+🌷 Un último detalle
+</button>
+
+<div id="mensajeFinal" class="final">
+
+Espero que hoy hayas sonreído mucho 🌷
+
+<br><br>
+
+Y que cuando recuerdes este día, lo hagas con una sonrisa.
+
+<br><br>
+
+✨ Feliz cumpleaños, Liz ✨
+
+</div>
+
+</div>
+
+<img src="flores-lila.jpeg" class="marco derecha">
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* CAMBIO DE PANTALLAS */
+
+function mostrarRegalo(){
+document.getElementById("inicio").classList.add("hidden");
+document.getElementById("regalo").classList.remove("hidden");
+}
+
+function abrirCarta(){
+document.getElementById("regalo").classList.add("hidden");
+document.getElementById("cartaCompleta").classList.remove("hidden");
+}
+
+function mostrarFinal(){
+document.getElementById("mensajeFinal").style.display="block";
+}
+
+/* FLORES CONSTANTES */
+
+setInterval(()=>{
+
+let flor=document.createElement("div");
+
+flor.className="flor";
+
+const flores=["🌷","🌸","🪻"];
+
+flor.innerHTML=flores[Math.floor(Math.random()*flores.length)];
+
+flor.style.left=Math.random()*100+"vw";
+
+flor.style.animationDuration=
+(6+Math.random()*4)+"s";
+
+document.body.appendChild(flor);
+
+setTimeout(()=>{
+flor.remove();
+},10000);
+
+},700);
+
+/* GLOBOS */
+
+const contenedor=document.getElementById("globos");
+
+for(let i=0;i<10;i++){
+
+let globo=document.createElement("div");
+
+globo.className="globo";
+
+globo.innerHTML="🎈";
+
+globo.style.left=Math.random()*100+"vw";
+
+globo.style.animationDuration=
+(12+Math.random()*8)+"s";
+
+globo.style.animationDelay=
+Math.random()*10+"s";
+
+contenedor.appendChild(globo);
+
+}
+
+</script>
+
+</body>
+</html>
